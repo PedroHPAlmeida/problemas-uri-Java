@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Main { 
+public class Main { //para o arquivo funcionar mude o nome para "Main.java"
     public static void main(String[] args){
         //variaveis
         int a, b, x;
