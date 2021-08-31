@@ -15,5 +15,6 @@ public class Ex1004{ //para ser aceito no URI, mude o nome da classe para Main
 
         //saida
         System.out.println("PROD = " + prod);
+        entrada.close();
     }
 } 
