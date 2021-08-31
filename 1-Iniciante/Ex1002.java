@@ -15,5 +15,6 @@ public class Ex1002 { //para ser aceito no URI, mude o nome da classe para Main
 
         //saida
         System.out.printf("A=%.4f\n", area);
+        entrada.close();
     }
 }
