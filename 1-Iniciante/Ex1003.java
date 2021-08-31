@@ -15,5 +15,6 @@ public class Ex1003 { //para ser aceito no URI, mude o nome da classe para Main
 
         //saida
         System.out.printf("SOMA = %d\n", soma);
+        entrada.close();
     }
 }
