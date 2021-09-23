@@ -12,7 +12,7 @@ public class Ex2848 {
 
         // entrada
         entrada = scanner.nextLine();
-        valores = entrada.split("\\n");
+        valores = entrada.split("\\s");
         tamVet = Integer.parseInt(valores[0]);
         rodadas = Integer.parseInt(valores[1]);
 
@@ -47,7 +47,7 @@ public class Ex2848 {
             }
 
             // saida
-            System.err.println(menor + " " + contKEsimo + result);
+            System.out.println(menor + " " + contKEsimo + " " + result);
         }
 
         scanner.close();
@@ -62,7 +62,6 @@ public class Ex2848 {
         for (int i = 0; i < valores.length; i++) {
             vet[i] = Integer.parseInt(valores[i]);
         }
-        scanner.close();
     }
 
     static void copiaVetor(int vetOrig[], int vetDest[], int inicio, int fim) {
