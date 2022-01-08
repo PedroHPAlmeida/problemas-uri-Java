@@ -13,7 +13,7 @@ public class Ex3084 { // para ser aceito no URI, mude o nome da classe para Main
         while (true) {
             String linha = bf.readLine();
 
-            if (linha == null || linha = "") { // condicao de parada
+            if (linha == null || linha == "") { // condicao de parada
                 break;
             }
 
