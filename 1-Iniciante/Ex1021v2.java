@@ -1,11 +1,14 @@
 import java.util.Scanner;
 
-public class Ex1021 {
+public class Ex1021v2 { // para ser aceito no Beecrowd mude o nome da classe para Main
     public static void main(String[] args) {
         // variaveis & objetos
         Scanner scanner = new Scanner(System.in);
         int[] nCedulas = new int[7];
         int[] nMoedas = new int[5];
+
+        int[] cedulas = { 100, 50, 20, 10, 5, 2, 1 };
+        int[] moedas = { 50, 25, 10, 5, 1 };
 
         // entrada
         String[] valores = scanner.nextLine().split("\\.");
@@ -13,8 +16,8 @@ public class Ex1021 {
         int valorMoeda = Integer.parseInt(valores[1]); // parte decimal do valor lido
 
         // processamento
-        nCedulas = parteInteira(nCedulas, valorCedula);
-        nMoedas = parteDecimal(nMoedas, valorMoeda);
+        nCedulas = separaValores(nCedulas, cedulas, valorCedula);
+        nMoedas = separaValores(nMoedas, moedas, valorMoeda);
 
         // saida
         imprime(nCedulas, nMoedas);
@@ -22,41 +25,29 @@ public class Ex1021 {
         scanner.close();
     }
 
-    public static int[] parteInteira(int vet[], int x) {
-        int[] cedulas = { 100, 50, 20, 10, 5, 2, 1 };
+    public static int[] separaValores(int nValores[], int[] valores, int x) {
         int i = 0;
         while (x > 0) {
-            vet[i] = x / cedulas[i];
-            x %= cedulas[i];
+            nValores[i] = x / valores[i];
+            x %= valores[i];
             i++;
         }
-        return vet;
+        return nValores;
     }
 
-    public static int[] parteDecimal(int vet[], int x) {
-        int[] moedas = { 50, 25, 10, 5, 1 };
-        int i = 0;
-        while (x > 0) {
-            vet[i] = x / moedas[i];
-            x %= moedas[i];
-            i++;
-        }
-        return vet;
-    }
+    public static void imprime(int vetCed[], int vetMoe[]) {
+        double[] cedulas = { 100, 50, 20, 10, 5, 2, 1 };
+        double[] moedas = { 0.5, 0.25, 0.10, 0.05, 0.01 };
 
-    public static void imprime(int vetCed[], int vetMoe[]){
-        double[] cedulas = {100, 50, 20, 10, 5, 2, 1};
-        double[] moedas = {0.5, 0.25, 0.10, 0.05, 0.01};
-    
         System.out.printf("NOTAS:\n");
-        for(int i = 0; i < 6; i++){
+        for (int i = 0; i < 6; i++) {
             System.out.printf("%d nota(s) de R$ %.2f\n", vetCed[i], cedulas[i]);
         }
-    
+
         System.out.printf("MOEDAS:\n");
         System.out.printf("%d moeda(s) de R$ %.2f\n", vetCed[6], cedulas[6]);
-    
-        for(int i = 0; i < 5; i++){
+
+        for (int i = 0; i < 5; i++) {
             System.out.printf("%d moeda(s) de R$ %.2f\n", vetMoe[i], moedas[i]);
         }
     }
