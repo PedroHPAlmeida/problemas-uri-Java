@@ -20,15 +20,9 @@ public class Ex1047 { // para ser aceito no Beecrowd mude o nome da classe para 
         int tempoEmMinutosInicio = hrInicio * 60 + minInicio; // calcula o tempo em minutos no momento de inicio do jogo
         int tempoEmMinutosFim = hrFim * 60 + minFim; // calcula o tempo em minutos no momento em que o jogo eh encerrado
 
-        int duracaoHoras = tempoEmMinutosInicio < tempoEmMinutosFim
-                ? ((tempoEmMinutosFim - tempoEmMinutosInicio) / 60)
-                : ((24 * 60 - (tempoEmMinutosInicio - tempoEmMinutosFim)) / 60);  // se o tempoEmMinutosInicio for < que tempoEmMinutosFim significa que o jogo terminou no mesmo dia, entao eh o feito o calulo apropriado. Caso contrario eh feito um calculo mais complexo para verificar a duracao do jogo.
-
-        int duracaoMinutos = tempoEmMinutosInicio < tempoEmMinutosFim
-                ? ((tempoEmMinutosFim - tempoEmMinutosInicio) % 60)
-                : ((24 * 60 - (tempoEmMinutosInicio - tempoEmMinutosFim)) % 60); // mesma logica da variavel duracaoHoras
+        int duracao = tempoEmMinutosInicio < tempoEmMinutosFim ? (tempoEmMinutosFim - tempoEmMinutosInicio) : (24 * 60 - tempoEmMinutosInicio) + tempoEmMinutosFim; // se o tempoEmMinutosInicio for < tempoEmMinutosFim, entao eh feita uma diferenca simples. Caso contrario, significa que o jogo acabou apenas no dia seguinte, entao eh feito um calculo mais elaborado 
 
         // saida
-        System.out.printf("O JOGO DUROU %d HORA(S) E %d MINUTO(S)\n", duracaoHoras, duracaoMinutos);
+        System.out.printf("O JOGO DUROU %d HORA(S) E %d MINUTO(S)\n", duracao / 60, duracao % 60);
     }
 }
