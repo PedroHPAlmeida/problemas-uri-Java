@@ -17,14 +17,16 @@ public class Ex1047 { // para ser aceito no Beecrowd mude o nome da classe para 
         int minFim = Integer.parseInt(input[3]);
 
         // processamento
-        int tempoEmMinutosInicio = hrInicio * 60 + minInicio;
-        int tempoEmMinutosFim = hrFim * 60 + minFim;
+        int tempoEmMinutosInicio = hrInicio * 60 + minInicio; // calcula o tempo em minutos no momento de inicio do jogo
+        int tempoEmMinutosFim = hrFim * 60 + minFim; // calcula o tempo em minutos no momento em que o jogo eh encerrado
+
         int duracaoHoras = tempoEmMinutosInicio >= tempoEmMinutosFim
                 ? ((24 * 60 - (tempoEmMinutosInicio - tempoEmMinutosFim)) / 60)
-                : ((tempoEmMinutosFim - tempoEmMinutosInicio) / 60);
+                : ((tempoEmMinutosFim - tempoEmMinutosInicio) / 60);  // se o tempoEmMinutosInicio for >=  a tempoEmMinutosFim significa que o jogo terminou apenas no dia seguinte, entao eh o feito o calulo apropriado. Caso contrario eh feito um calculo mais simples para verificar a duracao do jogo.
+
         int duracaoMinutos = tempoEmMinutosInicio >= tempoEmMinutosFim
                 ? ((24 * 60 - (tempoEmMinutosInicio - tempoEmMinutosFim)) % 60)
-                : ((tempoEmMinutosFim - tempoEmMinutosInicio) % 60);
+                : ((tempoEmMinutosFim - tempoEmMinutosInicio) % 60); // mesma logica da variavel duracaoHoras
 
         // saida
         System.out.printf("O JOGO DUROU %d HORA(S) E %d MINUTO(S)\n", duracaoHoras, duracaoMinutos);
