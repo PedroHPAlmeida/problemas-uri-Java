@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Ex1174 {
+public class Ex1172 {
     public static void main(String[] args) throws IOException {
         // variaveis & objetos
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
